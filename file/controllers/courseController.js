@@ -16,9 +16,8 @@ exports.createCourse = async (req, res) => {
   try {
     const course = new Course({
       title: req.body.title,
-      git: req.body.description,
+      description: req.body.description,
       category: req.body.category,
-      image: req.body.image,
       videoUrl: req.body.videoUrl,
     });
     await course.save();
@@ -52,7 +51,7 @@ exports.uploadVideo = async (req, res) => {
     }
 
     // Update the videoUrl property of the course
-    course.videoUrl = `/videos/${fileName}`;
+    course.videoUrl = `http://localhost:3000/videos/${fileName}`;
 
     // Save the updated course
     await course.save();
