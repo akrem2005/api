@@ -123,8 +123,8 @@ exports.getCourseById = async (req, res) => {
 };
 exports.getCourseByType = async (req, res) => {
   try {
-    const { type } = req.params;
-    const courses = await Course.find({ type });
+    const { category } = req.params;
+    const courses = await Course.find({ category });
 
     if (!courses || courses.length === 0) {
       return res.status(404).json({ error: "Courses not found" });
