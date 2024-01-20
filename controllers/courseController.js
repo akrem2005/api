@@ -124,7 +124,9 @@ exports.getCourseById = async (req, res) => {
 exports.getCourseByType = async (req, res) => {
   try {
     const { category } = req.params;
-    const courses = await Course.find({ category });
+
+    // Correct the query to filter by the 'category' field
+    const courses = await Course.find({ category: category });
 
     if (!courses || courses.length === 0) {
       return res.status(404).json({ error: "Courses not found" });
