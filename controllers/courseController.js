@@ -75,8 +75,23 @@ exports.updateCourse = async (req, res) => {
     if (!course) {
       return res.status(404).json({ error: "Course not found" });
     }
-    course.title = req.body.title;
-    course.category = req.body.categoryId;
+    // Update only the fields that are provided in the request
+    if (req.body.title) {
+      course.title = req.body.name;
+    }
+    if (req.body.category) {
+      course.category = req.body.category;
+    }
+    if (req.body.description) {
+      course.description = req.body.description;
+    }
+    if (req.body.image) {
+      course.image = req.body.image;
+    }
+    if (req.body.videoUrl) {
+      course.videoUrl = req.body.videoUrl;
+    }
+
     await course.save();
     res.json(course);
   } catch (error) {
