@@ -121,3 +121,18 @@ exports.getCourseById = async (req, res) => {
     res.status(500).json({ error: "Failed to retrieve course" });
   }
 };
+exports.getCourseByType = async (req, res) => {
+  try {
+    const { type } = req.params;
+    const coursey = await Course.find({ type });
+
+    if (!course) {
+      return res.status(404).json({ error: "Course not found" });
+    }
+
+    res.json(course);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to retrieve Course" });
+  }
+};
