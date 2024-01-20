@@ -77,7 +77,7 @@ exports.updateCourse = async (req, res) => {
     }
     // Update only the fields that are provided in the request
     if (req.body.title) {
-      course.title = req.body.name;
+      course.title = req.body.title;
     }
     if (req.body.category) {
       course.category = req.body.category;
