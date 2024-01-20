@@ -32,7 +32,16 @@ exports.updateCategory = async (req, res) => {
     if (!category) {
       return res.status(404).json({ error: "Category not found" });
     }
-    category.name = req.body.name;
+    if (req.body.name) {
+      category.name = req.body.name;
+    }
+    if (req.body.image) {
+      category.image = req.body.image;
+    }
+    if (req.body.type) {
+      category.type = req.body.type;
+    }
+
     await category.save();
     res.json(category);
   } catch (error) {
