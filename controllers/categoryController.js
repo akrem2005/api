@@ -62,14 +62,18 @@ exports.deleteCategory = async (req, res) => {
   }
 };
 
-exports.getCategoryById = async (req, res) => {
+exports.getCategoryByType = async (req, res) => {
   try {
-    const category = await Category.findById(req.params.id);
+    const { type } = req.params;
+    const category = await Category.findOne({ type });
+
     if (!category) {
       return res.status(404).json({ error: "Category not found" });
     }
+
     res.json(category);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Failed to retrieve category" });
   }
 };
