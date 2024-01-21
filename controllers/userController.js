@@ -33,7 +33,7 @@ exports.login = async (req, res) => {
       expiresIn: "48h",
     });
 
-    res.json({ token });
+    res.json({ token, activated: user.activated });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to login" });
