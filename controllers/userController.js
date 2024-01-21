@@ -16,6 +16,7 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
+    var activated = user.activated;
 
     if (!user) {
       return res.status(400).json({ error: "User does not exist" });
@@ -33,7 +34,7 @@ exports.login = async (req, res) => {
       expiresIn: "48h",
     });
 
-    res.json({ token, activated: user.activated });
+    res.json({ token, activated });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to login" });
