@@ -152,6 +152,9 @@ exports.updateUser = async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password;
     }
+    if (req.body.activated) {
+      user.activated = req.body.activated;
+    }
 
     await user.save();
     res.json(user);
