@@ -16,7 +16,6 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    var activated = user.activated;
 
     if (!user) {
       return res.status(400).json({ error: "User does not exist" });
@@ -33,6 +32,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ email: user.email, userId: user._id }, "ardax", {
       expiresIn: "48h",
     });
+    const activated = user.activated;
 
     res.json({ token, activated });
   } catch (error) {
