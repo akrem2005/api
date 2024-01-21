@@ -3,7 +3,8 @@ const router = express.Router();
 const PaymentController = require("../controllers/paymentController");
 
 // Create a new user
-router.post("/new", PaymentController.createpay);
-router.get("/", PaymentController.getall);
-router.get("/find", PaymentController.getPaybyType);
+router.post("/new", PaymentController.createPayment);
+router.get("/", PaymentController.getAllPayments);
+router.get("/find", PaymentController.getPaymentsByType);
+
 module.exports = router;

@@ -4,7 +4,7 @@ const Payment = require("../models/Payments");
 
 exports.getAllPayments = async (req, res) => {
   try {
-    const payments = await Payment.find().populate("category");
+    const payments = await Payment.find();
     res.json(payments);
   } catch (error) {
     console.error(error);

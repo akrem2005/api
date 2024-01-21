@@ -6,7 +6,7 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const userRoutes = require("./routes/userRoutes");
 const quizRoutes = require("./routes/quizRoutes");
-const paymentRoutes = require("./routes/paymentRoutes");
+const paymentRoutes = require("./routes/paymentsRoutes");
 
 mongoose
   .connect(
