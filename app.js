@@ -6,6 +6,7 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const userRoutes = require("./routes/userRoutes");
 const quizRoutes = require("./routes/quizRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 
 mongoose
   .connect(
@@ -21,6 +22,7 @@ app.use("/categories", categoryRoutes);
 app.use("/courses", courseRoutes);
 app.use("/users", userRoutes);
 app.use("/quiz", quizRoutes);
+app.use("/pay", paymentRoutes);
 
 const port = 3000;
 app.listen(port, () => {
