@@ -33,8 +33,9 @@ exports.login = async (req, res) => {
       expiresIn: "48h",
     });
     const activated = user.activated;
+    const id = user._id;
 
-    res.json({ token, activated });
+    res.json({ token, activated, id });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to login" });
@@ -212,6 +213,17 @@ exports.passwordReset = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to create recovery token" });
+  }
+};
+exports.getById = async (req, res) => {
+  try {
+    const user = await User.findById(req.query.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to retrieve user" });
   }
 };
 
