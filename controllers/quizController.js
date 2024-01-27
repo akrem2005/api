@@ -1,21 +1,30 @@
-const { Question } = require("../models/Quiz"); // Update with the correct model path
+const Question = require("../models/Question"); // Assuming you have a Question model
 
 exports.createQuestion = async (req, res) => {
   try {
+    // Destructuring request body directly in the function parameters
     const { questionText, options, correctAnswer, catagory } = req.body;
 
+    // Creating a new Question instance with object shorthand
     const question = new Question({
-      questionText: questionText,
-      options: options,
-      correctAnswer: correctAnswer,
-      catagory: catagory,
+      questionText,
+      options,
+      correctAnswer,
+      catagory,
     });
 
+    // Using async/await to save the question
     const savedQuestion = await question.save();
+
+    // Sending the saved question as the response
     res.json(savedQuestion);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Failed to create question" });
+
+    // Sending a more informative error response
+    res
+      .status(500)
+      .json({ error: "Failed to create question", details: error.message });
   }
 };
 
