@@ -2,12 +2,13 @@ const { Question } = require("../models/Quiz"); // Update with the correct model
 
 exports.createQuestion = async (req, res) => {
   try {
-    const { questionText, options, correctAnswer } = req.body;
+    const { questionText, options, correctAnswer, catagory } = req.body;
 
     const question = new Question({
       questionText: questionText,
       options: options,
       correctAnswer: correctAnswer,
+      catagory: catagory,
     });
 
     const savedQuestion = await question.save();

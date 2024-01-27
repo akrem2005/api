@@ -15,6 +15,10 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  catagory: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Question", questionSchema);
