@@ -3,6 +3,9 @@ const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const otpGenerator = require("otp-generator");
 const jwt = require("jsonwebtoken");
+const { promisify } = require("util");
+const bcrypt = require("bcrypt");
+const hashAsync = promisify(bcrypt.hash);
 
 exports.getUsers = async (req, res) => {
   try {
@@ -157,9 +160,6 @@ exports.updateUser = async (req, res) => {
       const hashedPassword = await hashAsync(req.body.password, saltRounds);
 
       user.password = hashedPassword;
-    } else {
-      // If no password is provided in the request, ensure the existing password remains unchanged
-      user.password = user.password;
     }
 
     if (req.body.activated !== undefined) {
@@ -170,7 +170,9 @@ exports.updateUser = async (req, res) => {
     res.json(user);
   } catch (error) {
     console.error("Error updating user:", error);
-    res.status(500).json({ error: "Failed to update user" });
+    res
+      .status(500)
+      .json({ error: "Failed to update user", details: error.message });
   }
 };
 exports.passwordReset = async (req, res) => {
