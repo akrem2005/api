@@ -1,65 +1,79 @@
-exports.getQuizzes = async (req, res) => {
-  try {
-    const quizzes = await Quiz.find().populate("category");
-    res.json(quizzes);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to retrieve quizzes" });
-  }
-};
+const { Question } = require("../models/Quiz"); // Update with the correct model path
 
-exports.createQuiz = async (req, res) => {
+exports.createQuestion = async (req, res) => {
   try {
-    const quiz = new Quiz({
-      title: req.body.title,
-      description: req.body.description,
-      category: req.body.categoryId,
-      questions: req.body.questions, // Assuming questions is an array of question objects
+    const { questionText, options, correctAnswer } = req.body;
+
+    const question = new Question({
+      questionText: questionText,
+      options: options,
+      correctAnswer: correctAnswer,
     });
-    await quiz.save();
-    res.json(quiz);
+
+    const savedQuestion = await question.save();
+    res.json(savedQuestion);
   } catch (error) {
-    res.status(500).json({ error: "Failed to create quiz" });
+    console.error(error);
+    res.status(500).json({ error: "Failed to create question" });
   }
 };
 
-exports.updateQuiz = async (req, res) => {
+exports.getQuestions = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id);
-    if (!quiz) {
-      return res.status(404).json({ error: "Quiz not found" });
-    }
-    quiz.title = req.body.title;
-    quiz.description = req.body.description;
-    quiz.category = req.body.categoryId;
-    quiz.questions = req.body.questions;
-    await quiz.save();
-    res.json(quiz);
+    const questions = await Question.find();
+    res.json(questions);
   } catch (error) {
-    res.status(500).json({ error: "Failed to update quiz" });
+    console.error(error);
+    res.status(500).json({ error: "Failed to retrieve questions" });
   }
 };
 
-exports.deleteQuiz = async (req, res) => {
+exports.getQuestionById = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id);
-    if (!quiz) {
-      return res.status(404).json({ error: "Quiz not found" });
+    const question = await Question.findById(req.params.id);
+    if (!question) {
+      return res.status(404).json({ error: "Question not found" });
     }
-    await quiz.remove();
-    res.json({ message: "Quiz deleted successfully" });
+    res.json(question);
   } catch (error) {
-    res.status(500).json({ error: "Failed to delete quiz" });
+    console.error(error);
+    res.status(500).json({ error: "Failed to retrieve question" });
   }
 };
 
-exports.getQuizById = async (req, res) => {
+exports.updateQuestion = async (req, res) => {
   try {
-    const quiz = await Quiz.findById(req.params.id).populate("category");
-    if (!quiz) {
-      return res.status(404).json({ error: "Quiz not found" });
+    const { questionText, options, correctAnswer } = req.body;
+    const question = await Question.findById(req.params.id);
+
+    if (!question) {
+      return res.status(404).json({ error: "Question not found" });
     }
-    res.json(quiz);
+
+    question.questionText = questionText;
+    question.options = options;
+    question.correctAnswer = correctAnswer;
+
+    const updatedQuestion = await question.save();
+    res.json(updatedQuestion);
   } catch (error) {
-    res.status(500).json({ error: "Failed to retrieve quiz" });
+    console.error(error);
+    res.status(500).json({ error: "Failed to update question" });
+  }
+};
+
+exports.deleteQuestion = async (req, res) => {
+  try {
+    const question = await Question.findById(req.params.id);
+
+    if (!question) {
+      return res.status(404).json({ error: "Question not found" });
+    }
+
+    await question.remove();
+    res.json({ message: "Question deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to delete question" });
   }
 };
