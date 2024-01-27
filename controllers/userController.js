@@ -151,36 +151,22 @@ exports.updateUser = async (req, res) => {
     }
 
     if (req.body.password) {
-      user.password = req.body.password;
       const saltRounds = 10;
 
       // Hash the password before saving the user
-      bcrypt.hash(
-        req.body.password,
-        saltRounds,
-        async (err, hashedPassword) => {
-          if (err) {
-            console.error("Error hashing password:", err);
-            return res.status(500).json({ error: "Failed to save user" });
-          }
+      const hashedPassword = await hashAsync(req.body.password, saltRounds);
 
-          try {
-            user.password = hashedPassword;
-            res.json(savedUser);
-          } catch (error) {
-            console.error("Error saving user:", error);
-            res.status(500).json({ error: "Failed to save user" });
-          }
-        }
-      );
+      user.password = hashedPassword;
     }
-    if (req.body.activated) {
+
+    if (req.body.activated !== undefined) {
       user.activated = req.body.activated;
     }
 
     await user.save();
     res.json(user);
   } catch (error) {
+    console.error("Error updating user:", error);
     res.status(500).json({ error: "Failed to update user" });
   }
 };
