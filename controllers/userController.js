@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 const otpGenerator = require("otp-generator");
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
-const bcrypt = require("bcrypt");
 const hashAsync = promisify(bcrypt.hash);
 
 exports.getUsers = async (req, res) => {
