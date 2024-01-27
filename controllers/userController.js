@@ -157,6 +157,9 @@ exports.updateUser = async (req, res) => {
       const hashedPassword = await hashAsync(req.body.password, saltRounds);
 
       user.password = hashedPassword;
+    } else {
+      // If no password is provided in the request, ensure the existing password remains unchanged
+      user.password = user.password;
     }
 
     if (req.body.activated !== undefined) {
