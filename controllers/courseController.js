@@ -16,7 +16,7 @@ exports.createCourse = async (req, res) => {
   try {
     const course = new Course({
       title: req.body.title,
-      git: req.body.description,
+      description: req.body.description,
       category: req.body.category,
       image: req.body.image,
       videoUrl: req.body.videoUrl,
