@@ -199,7 +199,7 @@ exports.passwordReset = async (req, res) => {
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "sgwp qarb jdym vsnr", // Replace with your Gmail password
+        pass: "ougu eltx yfeb tava", // Replace with your Gmail password
       },
     });
 
@@ -230,12 +230,11 @@ exports.feedBack = async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
-    // Configure Nodemailer to use your Gmail account
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "sgwp qarb jdym vsnr", // Replace with your Gmail password
+        pass: "ougu eltx yfeb tava", // Replace with your Gmail password
       },
     });
 
