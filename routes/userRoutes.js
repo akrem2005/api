@@ -20,5 +20,7 @@ router.put("/:id", UserController.updateUser);
 router.post("/login", UserController.login);
 //Forget Email
 router.post("/reset", UserController.passwordReset);
+//Feedback
+router.post("/feedback", UserController.feedBack);
 
 module.exports = router;

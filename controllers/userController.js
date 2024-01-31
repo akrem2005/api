@@ -226,6 +226,38 @@ exports.passwordReset = async (req, res) => {
     res.status(500).json({ error: "Failed to create recovery token" });
   }
 };
+exports.feedBack = async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+
+    // Configure Nodemailer to use your Gmail account
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "codethicaet@gmail.com", // Replace with your Gmail email
+        pass: "sgwp qarb jdym vsnr", // Replace with your Gmail password
+      },
+    });
+
+    // Email options
+    const mailOptions = {
+      from: "codethicaet@gmail.com", // Sender email address
+      to: "lighttech96@gmail.com", // Destination email address
+      subject: "Feedback from " + name,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    };
+
+    // Send email
+    await transporter.sendMail(mailOptions);
+
+    res
+      .status(200)
+      .json({ success: true, message: "Feedback sent successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
 exports.getById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
