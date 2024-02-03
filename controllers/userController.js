@@ -85,7 +85,7 @@ exports.createUser = async (req, res) => {
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "sgwp qarb jdym vsnr", // Replace with your Gmail password
+        pass: "ougu eltx yfeb tava", // Replace with your Gmail password
       },
     });
 
