@@ -85,7 +85,7 @@ exports.createUser = async (req, res) => {
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "ougu eltx yfeb tava", // Replace with your Gmail password
+        pass: "crbo clfa vtry eovh", // Replace with your Gmail password
       },
     });
 
@@ -202,7 +202,7 @@ exports.passwordReset = async (req, res) => {
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "hexz yrpz aauc luub", // Replace with your Gmail password
+        pass: "crbo clfa vtry eovh", // Replace with your Gmail password
       },
     });
 
@@ -237,7 +237,7 @@ exports.feedBack = async (req, res) => {
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "hexz yrpz aauc luub", // Replace with your Gmail password
+        pass: "crbo clfa vtry eovh", // Replace with your Gmail password
       },
     });
 
