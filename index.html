@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Forex and Crypto Learning App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <style>
+      /* Resetting some styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #000;
+        color: #fb00ff; /* Neon Green */
+        font-family: "Roboto", sans-serif;
+      }
+
+      header {
+        background: linear-gradient(to right, #111, #000);
+        padding: 2em;
+        text-align: left;
+      }
+
+      header img {
+        max-width: 300px;
+        height: auto;
+        border: 2px solid #fb00ff; /* Neon Green */
+        border-radius: 10px;
+        box-shadow: 0 0 10px #fb00ff; /* Neon Green */
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #fb00ff; /* Neon Green */
+        margin-bottom: 0.5em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        color: #b3b3b3; /* Light Gray */
+        margin-bottom: 1em;
+      }
+
+      .cta-container {
+        text-align: center;
+        margin-top: 2em;
+      }
+
+      .cta-button {
+        background: linear-gradient(to right, #9900ff, #fb00ff);
+        color: #000;
+        font-size: 1.2em;
+        padding: 1em 2em;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(to right, #616bfb, #fb00ff);
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 2em;
+      }
+
+      .feature-card {
+        background: linear-gradient(to right, #111, #000);
+        color: #b88aff; /* Purple */
+        border: 2px solid #b88aff; /* Purple */
+        border-radius: 10px;
+        padding: 1.5em;
+        margin: 1em;
+        text-align: center;
+        max-width: 300px;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .feature-card p {
+        color: #b3b3b3;
+      }
+
+      .screenshot-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent line breaks */
+        padding: 1em;
+        margin-top: 2em;
+      }
+
+      .screenshot {
+        max-width: 70%;
+        height: auto;
+        margin: 1em;
+        border: 2px solid #fb00ff; /* Neon Green */
+        border-radius: 10px;
+        max-height: 400px;
+        box-shadow: 0 0 10px #fb00ff; /* Neon Green */
+        display: inline-block;
+      }
+
+      .video-container {
+        max-width: 100%;
+        overflow: hidden;
+        margin-top: 2em;
+      }
+
+      .video-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .testimonial-container {
+        background: #111;
+        color: #b3b3b3;
+        padding: 2em;
+        border-radius: 10px;
+        margin-top: 2em;
+        text-align: center;
+      }
+
+      .testimonial {
+        font-style: italic;
+        margin-bottom: 1em;
+      }
+
+      .faq-container {
+        background: #111;
+        color: #b3b3b3;
+        padding: 2em;
+        border-radius: 10px;
+        margin-top: 2em;
+      }
+
+      .faq-question {
+        font-weight: bold;
+        margin-bottom: 0.5em;
+      }
+
+      .faq-answer {
+        margin-bottom: 1em;
+      }
+
+      .newsletter-container {
+        background: linear-gradient(to right, #111, #000);
+        color: #fb00ff;
+        padding: 2em;
+        border-radius: 10px;
+        margin-top: 2em;
+        text-align: center;
+      }
+
+      .newsletter-heading {
+        font-size: 1.8em;
+        margin-bottom: 1em;
+      }
+
+      .newsletter-input {
+        padding: 0.5em;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        width: 60%;
+      }
+
+      .newsletter-button {
+        background: linear-gradient(to right, #fb00ff, #61dafb);
+        color: #000;
+        font-size: 1.2em;
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-button:hover {
+        background: linear-gradient(to right, #61dafb, #fb00ff);
+      }
+
+      footer {
+        background: linear-gradient(to right, #111, #000);
+        color: rgba(174, 85, 238, 0.933); /* Neon Green */
+        padding: 1em;
+        text-align: center;
+      }
+
+      /* Additional styles for Forex and Crypto Learning App */
+      .forex-crypto-container {
+        background: #111;
+        color: #b3b3b3;
+        padding: 2em;
+        border-radius: 10px;
+        margin-top: 2em;
+      }
+
+      .forex-crypto-heading {
+        font-size: 1.8em;
+        margin-bottom: 1em;
+      }
+
+      .forex-crypto-content {
+        /* Add your content styling here */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="content-container">
+        <h1>Your Forex and Crypto Learning App</h1>
+        <h2>Master the Art of Trading in Forex and Crypto Markets</h2>
+
+        <!-- Rest of your content -->
+        <!-- ... -->
+      </div>
+    </header>
+    <div class="video-container">
+      <!-- Replace with actual video embed code or URL -->
+      <iframe
+        src="https://media.istockphoto.com/id/962464638/video/binary-code-black-and-green-background-with-digits-moving-on-screen-concept-of-digital-age.mp4?s=mp4-640x640-is&k=20&c=fMcH9yaJHdyjj0d_2EXEumDWEkeyajeHjDe8gRP6ynY="
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="cta-container">
+      <a href="#" class="cta-button">Download from Futuristic Store</a>
+      <a href="#" class="cta-button">Download Future APK</a>
+    </div>
+
+    <div class="flex justify-center flex-wrap mt-8">
+      <div class="feature-card">
+        <h3>Forex Basics</h3>
+        <p>
+          Learn the fundamentals of forex trading and build a strong foundation.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Crypto Strategies</h3>
+        <p>
+          Explore effective strategies for trading cryptocurrencies and maximize
+          profits.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Risk Management</h3>
+        <p>
+          Master the art of risk management to safeguard your investments in
+          volatile markets.
+        </p>
+      </div>
+    </div>
+    <center>
+      <div class="screenshot-container">
+        <!-- Add relevant screenshots for the Forex and Crypto Learning App -->
+        <img
+          src="https://theapplaunchpad.com/assets/img/svg/applaunchpad/scr/9.svg"
+          alt="App Screenshot 1"
+          class="screenshot"
+        />
+        <img
+          src="https://theapplaunchpad.com/assets/img/svg/applaunchpad/scr/1.svg"
+          alt="App Screenshot 2"
+          class="screenshot"
+        />
+        <img
+          src="https://theapplaunchpad.com/assets/img/svg/applaunchpad/scr/10.svg"
+          alt="App Screenshot 1"
+          class="screenshot"
+        />
+        <img
+          src="https://theapplaunchpad.com/assets/img/svg/applaunchpad/scr/3.svg"
+          alt="App Screenshot 2"
+          class="screenshot"
+        />
+        <img
+          src="https://theapplaunchpad.com/assets/img/svg/applaunchpad/scr/5.svg"
+          alt="App Screenshot 1"
+          class="screenshot"
+        />
+        <img
+          src="https://theapplaunchpad.com/assets/img/svg/applaunchpad/scr/2.svg"
+          alt="App Screenshot 2"
+          class="screenshot"
+        />
+        <!-- Add more screenshots as needed -->
+      </div>
+    </center>
+
+    <div class="testimonial-container">
+      <p class="testimonial">
+        "Your app has transformed how I approach forex and crypto trading. It's
+        a game-changer!"
+      </p>
+      <!-- Add more testimonials as needed -->
+    </div>
+
+    <div class="faq-container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <p class="faq-question">
+          Q: How can I access the learning materials in the app?
+        </p>
+        <p class="faq-answer">
+          A: Once you download the app, you can access all learning materials
+          directly.
+        </p>
+      </div>
+      <!-- Add more FAQs as needed -->
+    </div>
+
+    <div class="newsletter-container">
+      <h2 class="newsletter-heading">
+        Subscribe to Our Newsletter for Updates!
+      </h2>
+      <input
+        type="email"
+        class="newsletter-input"
+        placeholder="Enter your email"
+      />
+      <button class="newsletter-button">Subscribe</button>
+    </div>
+
+    <div class="forex-crypto-container">
+      <h2 class="forex-crypto-heading">
+        Explore Forex and Crypto Markets with Our App
+      </h2>
+      <div class="forex-crypto-content">
+        <!-- Add informative content about your app's forex and crypto features -->
+        <p>
+          Discover the world of forex and cryptocurrency trading with our app.
+          Whether you're a beginner or an experienced trader, we provide
+          comprehensive learning resources, advanced features, and real-time
+          market insights to enhance your trading journey.
+        </p>
+        <!-- Add more content as needed -->
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2024 Your Forex and Crypto Learning App. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
