@@ -12,8 +12,8 @@
       /* Resetting some styles */
       * {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        margin: 0px;
+        padding: 0px;
       }
 
       body {
@@ -29,7 +29,7 @@
       }
 
       header img {
-        max-width: 300px;
+        max-width: 100%;
         height: auto;
         border: 2px solid #fb00ff; /* Neon Green */
         border-radius: 10px;
@@ -37,36 +37,42 @@
       }
 
       h1 {
+        text-align: center;
         font-size: 2.5em;
         color: #fb00ff; /* Neon Green */
         margin-bottom: 0.5em;
       }
 
       h2 {
+        text-align: center;
         font-size: 1.5em;
         color: #b3b3b3; /* Light Gray */
         margin-bottom: 1em;
       }
+      .content-container {
+        margin-top: 40px;
+      }
 
       .cta-container {
         text-align: center;
-        margin-top: 2em;
+        margin-top: 40px;
+        margin-bottom: 40px;
       }
 
       .cta-button {
-        background: linear-gradient(to right, #9900ff, #fb00ff);
+        background: #fff;
         color: #000;
         font-size: 1.2em;
         padding: 1em 2em;
         border: none;
         border-radius: 5px;
-        margin-right: 10px;
+        margin-right: 2px;
         text-decoration: none;
         transition: all 0.3s ease;
       }
 
       .cta-button:hover {
-        background: linear-gradient(to right, #616bfb, #fb00ff);
+        @apply bg-gradient-to-r from-indigo-500 to-pink-500;
       }
 
       .flex-container {
@@ -78,7 +84,7 @@
       }
 
       .feature-card {
-        background: linear-gradient(to right, #111, #000);
+        @apply bg-gradient-to-r from-purple-900 to-black;
         color: #b88aff; /* Purple */
         border: 2px solid #b88aff; /* Purple */
         border-radius: 10px;
@@ -105,7 +111,7 @@
       }
 
       .screenshot {
-        max-width: 70%;
+        max-width: 100%;
         height: auto;
         margin: 1em;
         border: 2px solid #fb00ff; /* Neon Green */
@@ -116,21 +122,21 @@
       }
 
       .video-container {
+        position: relative;
         max-width: 100%;
         overflow: hidden;
         margin-top: 2em;
       }
 
       .video-container iframe {
-        width: 100%;
-        height: 400px;
+        width: 550px;
+        height: 300px;
         border: none;
         border-radius: 10px;
       }
 
       .testimonial-container {
-        background: #111;
-        color: #b3b3b3;
+        @apply bg-black text-gray-700;
         padding: 2em;
         border-radius: 10px;
         margin-top: 2em;
@@ -143,8 +149,7 @@
       }
 
       .faq-container {
-        background: #111;
-        color: #b3b3b3;
+        @apply bg-black text-gray-700;
         padding: 2em;
         border-radius: 10px;
         margin-top: 2em;
@@ -177,12 +182,12 @@
         padding: 0.5em;
         border: none;
         border-radius: 5px;
-        margin-right: 10px;
-        width: 60%;
+        margin-right: 2px;
+        width: 80%;
       }
 
       .newsletter-button {
-        background: linear-gradient(to right, #fb00ff, #61dafb);
+        background: #fb00ff;
         color: #000;
         font-size: 1.2em;
         padding: 0.5em 1em;
@@ -193,20 +198,20 @@
       }
 
       .newsletter-button:hover {
-        background: linear-gradient(to right, #61dafb, #fb00ff);
+        @apply bg-gradient-to-r from-blue-500 to-pink-500;
       }
 
       footer {
         background: linear-gradient(to right, #111, #000);
         color: rgba(174, 85, 238, 0.933); /* Neon Green */
         padding: 1em;
+        margin-bottom: 100px;
         text-align: center;
       }
 
       /* Additional styles for Forex and Crypto Learning App */
       .forex-crypto-container {
-        background: #111;
-        color: #b3b3b3;
+        @apply bg-black text-gray-700;
         padding: 2em;
         border-radius: 10px;
         margin-top: 2em;
@@ -218,7 +223,24 @@
       }
 
       .forex-crypto-content {
-        /* Add your content styling here */
+        color: #aaa2a2;
+      }
+      .imgscr {
+        width: 100%;
+      }
+
+      .screenshot-main {
+        max-width: 100%;
+        height: auto;
+        margin-top: -150px;
+        height: 400px;
+        right: 200px;
+      }
+
+      /* Add cool hover effect to screenshot */
+      .screenshot-main:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
       }
     </style>
   </head>
@@ -228,22 +250,25 @@
         <h1>Your Forex and Crypto Learning App</h1>
         <h2>Master the Art of Trading in Forex and Crypto Markets</h2>
 
+        <center>
+          <div class="video-container">
+            <!-- Replace with actual video embed code or URL -->
+            <iframe
+              id="videoPlayer"
+              src="https://media.istockphoto.com/id/962464638/video/binary-code-black-and-green-background-with-digits-moving-on-screen-concept-of-digital-age.mp4?s=mp4-640x640-is&k=20&c=fMcH9yaJHdyjj0d_2EXEumDWEkeyajeHjDe8gRP6ynY="
+              allowfullscreen
+            ></iframe>
+          </div>
+        </center>
+        <div class="cta-container">
+          <a href="#" class="cta-button">Download from Futuristic Store</a>
+          <a href="#" class="cta-button">Download Future APK</a>
+        </div>
+
         <!-- Rest of your content -->
         <!-- ... -->
       </div>
     </header>
-    <div class="video-container">
-      <!-- Replace with actual video embed code or URL -->
-      <iframe
-        src="https://media.istockphoto.com/id/962464638/video/binary-code-black-and-green-background-with-digits-moving-on-screen-concept-of-digital-age.mp4?s=mp4-640x640-is&k=20&c=fMcH9yaJHdyjj0d_2EXEumDWEkeyajeHjDe8gRP6ynY="
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    <div class="cta-container">
-      <a href="#" class="cta-button">Download from Futuristic Store</a>
-      <a href="#" class="cta-button">Download Future APK</a>
-    </div>
 
     <div class="flex justify-center flex-wrap mt-8">
       <div class="feature-card">
@@ -336,22 +361,6 @@
         placeholder="Enter your email"
       />
       <button class="newsletter-button">Subscribe</button>
-    </div>
-
-    <div class="forex-crypto-container">
-      <h2 class="forex-crypto-heading">
-        Explore Forex and Crypto Markets with Our App
-      </h2>
-      <div class="forex-crypto-content">
-        <!-- Add informative content about your app's forex and crypto features -->
-        <p>
-          Discover the world of forex and cryptocurrency trading with our app.
-          Whether you're a beginner or an experienced trader, we provide
-          comprehensive learning resources, advanced features, and real-time
-          market insights to enhance your trading journey.
-        </p>
-        <!-- Add more content as needed -->
-      </div>
     </div>
 
     <footer>
