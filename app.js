@@ -24,7 +24,7 @@ app.use("/courses", courseRoutes);
 app.use("/users", userRoutes);
 app.use("/quiz", quizRoutes);
 app.use("/pay", paymentRoutes);
-app.get("/get", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 const port = 3000;
