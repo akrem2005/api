@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const UserController = require("../controllers/userController");
-
+const authController = require("../controllers/authcontroller");
 // Get all users
 router.get("/getall", UserController.getUsers);
 // Get  users by id
-router.get("/:id", UserController.getById);
+router.get("/:id", authController.verifyToken, UserController.getById);
 
 // Create a new user
 router.post("/new", UserController.createUser);
@@ -21,6 +21,6 @@ router.post("/login", UserController.login);
 //Forget Email
 router.post("/reset", UserController.passwordReset);
 //Feedback
-router.post("/feedback", UserController.feedBack);
+router.post("/feedback", authController.verifyToken, UserController.feedBack);
 
 module.exports = router;
