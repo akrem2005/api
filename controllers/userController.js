@@ -95,10 +95,13 @@ exports.createUser = async (req, res) => {
       to: req.body.email,
       subject: "እንኳን ወደ ARADAX በደህና መጡ።",
       html: `
-        <p>AaradaX Community</p>
-        <p><strong>Hello,</strong>ማህበረሰባችንን ስለተቀላቀሉ እናመሰግናለን።</p>
-        <img src="https://www.forexfraud.com/wp-content/uploads/2022/09/20-forex-trading-tips-to-be-successful-1024x626.jpg" alt="Sample Image">
-      `,
+    <div style="background-color: #161616; color: #ffffff; text-align: center; padding: 20px;">
+      <p style="font-size: 20px;">ARADAX Community</p>
+      <p style="font-size: 16px;">Welcome to the future of wealth! Get mentorship on how to achieve financial success from actual millionaires. Start your 30-day journey to become rich.</p>
+      <img src="https://www.forexfraud.com/wp-content/uploads/2022/09/20-forex-trading-tips-to-be-successful-1024x626.jpg" alt="Sample Image" style="width: 100%; max-width: 600px; height: auto; margin: 20px 0;">
+      <button style="background-color: #800080; color: #ffffff; padding: 10px 20px; font-size: 16px; border: none; outline: none; cursor: pointer; border-radius: 5px;">Get Started</button>
+    </div>
+  `,
     };
 
     // Send mail with defined transport object
@@ -199,7 +202,7 @@ exports.passwordReset = async (req, res) => {
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "ougu eltx yfeb tava", // Replace with your Gmail password
+        pass: "hexz yrpz aauc luub", // Replace with your Gmail password
       },
     });
 
@@ -234,7 +237,7 @@ exports.feedBack = async (req, res) => {
       service: "gmail",
       auth: {
         user: "codethicaet@gmail.com", // Replace with your Gmail email
-        pass: "ougu eltx yfeb tava", // Replace with your Gmail password
+        pass: "hexz yrpz aauc luub", // Replace with your Gmail password
       },
     });
 
