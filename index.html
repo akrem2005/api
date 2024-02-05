@@ -146,22 +146,7 @@
       .testimonial {
         font-style: italic;
         margin-bottom: 1em;
-      }
-
-      .faq-container {
-        @apply bg-black text-gray-700;
-        padding: 2em;
-        border-radius: 10px;
-        margin-top: 2em;
-      }
-
-      .faq-question {
-        font-weight: bold;
-        margin-bottom: 0.5em;
-      }
-
-      .faq-answer {
-        margin-bottom: 1em;
+        color: #eee;
       }
 
       .newsletter-container {
@@ -183,6 +168,7 @@
         border: none;
         border-radius: 5px;
         margin-right: 2px;
+        margin: 10px;
         width: 80%;
       }
 
@@ -204,8 +190,7 @@
       footer {
         background: linear-gradient(to right, #111, #000);
         color: rgba(174, 85, 238, 0.933); /* Neon Green */
-        padding: 1em;
-        margin-bottom: 100px;
+        padding: 10px;
         text-align: center;
       }
 
@@ -260,10 +245,16 @@
             ></iframe>
           </div>
         </center>
-        <div class="cta-container">
-          <a href="#" class="cta-button">Download from Futuristic Store</a>
-          <a href="#" class="cta-button">Download Future APK</a>
-        </div>
+        <center>
+          <div
+            class="cta-container flex flex-col md:flex-row items-center md:items-start mx-auto max-w-lg mt-4"
+          >
+            <a href="#" class="cta-button mb-2 md:mr-2 md:mb-0"
+              >Download from Futuristic Store</a
+            >
+            <a href="#" class="cta-button">Download Future APK</a>
+          </div>
+        </center>
 
         <!-- Rest of your content -->
         <!-- ... -->
@@ -335,20 +326,6 @@
         a game-changer!"
       </p>
       <!-- Add more testimonials as needed -->
-    </div>
-
-    <div class="faq-container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <p class="faq-question">
-          Q: How can I access the learning materials in the app?
-        </p>
-        <p class="faq-answer">
-          A: Once you download the app, you can access all learning materials
-          directly.
-        </p>
-      </div>
-      <!-- Add more FAQs as needed -->
     </div>
 
     <div class="newsletter-container">
