@@ -3,7 +3,7 @@ const User = require("../models/User"); // Update the path based on your project
 
 // Middleware to check if a valid token is present
 exports.verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
+  const token = req.header("Authorization");
 
   if (!token) {
     return res.status(401).json({ error: "Unauthorized: No token provided" });
@@ -21,13 +21,11 @@ exports.verifyToken = (req, res, next) => {
 exports.isAdmin = async (req, res, next) => {
   try {
     // Get the token from the request headers
-    const authHeader = req.headers.authorization;
+    const token = req.header("Authorization");
 
-    if (!authHeader) {
+    if (!token) {
       return res.status(401).json({ error: "Unauthorized: No token provided" });
     }
-
-    const token = authHeader.split(" ")[1]; // Assuming the token is sent in the "Authorization" header
 
     // Verify the token
     const decodedToken = jwt.verify(token, "ardax");
