@@ -2,17 +2,18 @@ const jwt = require("jsonwebtoken");
 
 // Middleware to check if a valid token is present
 exports.verifyToken = (req, res, next) => {
-  const token = req.headers.Authorization;
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
 
   if (!token) {
-    return res.status(401).json({ error: "Unauthorized: No token provided" });
+    return res.sendStatus(401);
   }
 
-  jwt.verify(token, "ardax", (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ error: "Unauthorized: Invalid token" });
-    }
-    req.user = decoded;
-    next();
-  });
+  const result = verifyAccessToken(token, "aradx");
+
+  if (!result.success) {
+    return res.status(403).json({ error: result.error });
+  }
+
+  next();
 };
