@@ -10,6 +10,10 @@ const userSchema = new mongoose.Schema({
   referal: String,
   referdby: String,
   activated: Boolean,
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

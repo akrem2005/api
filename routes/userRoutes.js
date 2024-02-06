@@ -3,7 +3,7 @@ const router = express.Router();
 const UserController = require("../controllers/userController");
 const authController = require("../controllers/authcontroller");
 // Get all users
-router.get("/getall", UserController.getUsers);
+router.get("/getall", authController.isAdmin, UserController.getUsers);
 // Get  users by id
 router.get("/:id", authController.verifyToken, UserController.getById);
 
@@ -11,10 +11,10 @@ router.get("/:id", authController.verifyToken, UserController.getById);
 router.post("/new", UserController.createUser);
 
 // Delete a user by ID
-router.get("/delete/:id", UserController.deleteUser);
+router.get("/delete/:id", authController.isAdmin, UserController.deleteUser);
 
 // Update a user by ID
-router.put("/:id", UserController.updateUser);
+router.put("/:id", authController.verifyToken, UserController.updateUser);
 
 // Login
 router.post("/login", UserController.login);

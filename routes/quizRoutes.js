@@ -4,7 +4,11 @@ const questionController = require("../controllers/quizController");
 const authController = require("../controllers/authcontroller");
 
 // Create a question
-router.post("/questions", questionController.createQuestion);
+router.post(
+  "/questions",
+  authController.isAdmin,
+  questionController.createQuestion
+);
 
 // Get all questions
 router.get(
@@ -21,9 +25,17 @@ router.get(
 );
 
 // Update a question by ID
-router.put("/questions/:id", questionController.updateQuestion);
+router.put(
+  "/questions/:id",
+  authController.isAdmin,
+  questionController.updateQuestion
+);
 
 // Delete a question by ID
-router.delete("/questions/:id", questionController.deleteQuestion);
+router.delete(
+  "/questions/:id",
+  authController.isAdmin,
+  questionController.deleteQuestion
+);
 
 module.exports = router;
