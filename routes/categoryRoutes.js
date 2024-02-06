@@ -7,11 +7,7 @@ router.use(authController.verifyToken);
 router.get("/", categoryController.getCategories);
 router.post("/new", categoryController.createCategory);
 router.put("/:id", categoryController.updateCategory);
-router.delete(
-  "/:id",
-  authController.isAdmin,
-  categoryController.deleteCategory
-);
+router.delete("/:id", categoryController.deleteCategory);
 router.get("/:id", categoryController.getCategoryById);
 
 module.exports = router;
