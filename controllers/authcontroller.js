@@ -18,7 +18,7 @@ exports.verifyToken = (req, res, next) => {
 };
 exports.isAdmin = async (req, res, next) => {
   try {
-    const token = req.headers.authorization;
+    const token = req.body.token;
 
     if (!token) {
       return res.status(401).json({ error: "Unauthorized: No token provided" });
