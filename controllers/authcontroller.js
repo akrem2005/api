@@ -1,15 +1,14 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User"); // Update the path based on your project structure
 
 // Middleware to check if a valid token is present
 exports.verifyToken = (req, res, next) => {
-  const token = req.header("Authorization");
+  const token = req.headers.authorization;
 
   if (!token) {
     return res.status(401).json({ error: "Unauthorized: No token provided" });
   }
 
-  jwt.verify(token.split(" ")[1], "ardax", (err, decoded) => {
+  jwt.verify(token, "ardax", (err, decoded) => {
     if (err) {
       return res.status(401).json({ error: "Unauthorized: Invalid token" });
     }
@@ -17,39 +16,32 @@ exports.verifyToken = (req, res, next) => {
     next();
   });
 };
-
 exports.isAdmin = async (req, res, next) => {
   try {
-    // Get the token from the request headers
-    const token = req.header("Authorization");
+    const token = req.headers.authorization;
 
     if (!token) {
       return res.status(401).json({ error: "Unauthorized: No token provided" });
     }
 
-    // Verify the token
-    const decodedToken = jwt.verify(token, "ardax");
+    jwt.verify(token, "ardax", async (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ error: "Unauthorized: Invalid token" });
+      }
 
-    // Get the user ID from the decoded token
-    const userId = decodedToken.userId;
+      // Check if the user has an admin role (customize based on your user model)
+      const user = await User.findById(decoded.userId);
+      if (!user || !user.isAdmin) {
+        return res
+          .status(403)
+          .json({ error: "Forbidden: User is not an admin" });
+      }
 
-    // Find the user in the database
-    const user = await User.findById(userId);
-
-    // Check if the user is an admin
-    if (!user || !user.isAdmin) {
-      return res.status(403).json({ error: "Unauthorized access" });
-    }
-
-    // You can include additional user information in the response if needed
-    res.json({ message: "Admin access granted", user });
+      // If the user is an admin, proceed to the next middleware or route handler
+      next();
+    });
   } catch (error) {
     console.error(error);
-
-    if (error.name === "JsonWebTokenError") {
-      return res.status(401).json({ error: "Invalid token" });
-    }
-
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Failed to check admin status" });
   }
 };
