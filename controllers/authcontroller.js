@@ -19,7 +19,7 @@ exports.verifyToken = (req, res, next) => {
 exports.isAdmin = async (req, res, next) => {
   try {
     // Get the token from the request headers
-    const token = req.headers.authorization; // Assuming the token is sent in the "Authorization" header
+    const token = req.headers.Authorization; // Assuming the token is sent in the "Authorization" header
 
     // Verify the token
     const decodedToken = jwt.verify(token, "ardax");
