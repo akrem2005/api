@@ -1,14 +1,15 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/User"); // Update the path based on your project structure
 
 // Middleware to check if a valid token is present
 exports.verifyToken = (req, res, next) => {
-  const token = req.headers.Authorization;
+  const token = req.headers.authorization;
 
   if (!token) {
     return res.status(401).json({ error: "Unauthorized: No token provided" });
   }
 
-  jwt.verify(token, "ardax", (err, decoded) => {
+  jwt.verify(token.split(" ")[1], "ardax", (err, decoded) => {
     if (err) {
       return res.status(401).json({ error: "Unauthorized: Invalid token" });
     }
@@ -16,10 +17,11 @@ exports.verifyToken = (req, res, next) => {
     next();
   });
 };
+
 exports.isAdmin = async (req, res, next) => {
   try {
     // Get the token from the request headers
-    const token = req.headers.Authorization; // Assuming the token is sent in the "Authorization" header
+    const token = req.headers.authorization.split(" ")[1]; // Assuming the token is sent in the "Authorization" header
 
     // Verify the token
     const decodedToken = jwt.verify(token, "ardax");
