@@ -18,30 +18,32 @@ exports.verifyToken = (req, res, next) => {
 };
 exports.isAdmin = async (req, res, next) => {
   try {
-    const token = req.headers.authorization;
+    // Get the token from the request headers
+    const token = req.headers.authorization.split(" ")[1]; // Assuming the token is sent in the "Authorization" header
 
-    if (!token) {
-      return res.status(401).json({ error: "Unauthorized: No token provided" });
+    // Verify the token
+    const decodedToken = jwt.verify(token, "ardax");
+
+    // Get the user ID from the decoded token
+    const userId = decodedToken.userId;
+
+    // Find the user in the database
+    const user = await User.findById(userId);
+
+    // Check if the user is an admin
+    if (!user || !user.isAdmin) {
+      return res.status(403).json({ error: "Unauthorized access" });
     }
 
-    jwt.verify(token, "ardax", async (err, decoded) => {
-      if (err) {
-        return res.status(401).json({ error: "Unauthorized: Invalid token" });
-      }
-
-      // Check if the user has an admin role (customize based on your user model)
-      const user = await User.findById(decoded.userId);
-      if (!user || !user.isAdmin) {
-        return res
-          .status(403)
-          .json({ error: "Forbidden: User is not an admin" });
-      }
-
-      // If the user is an admin, proceed to the next middleware or route handler
-      next();
-    });
+    // You can include additional user information in the response if needed
+    res.json({ message: "Admin access granted", user });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Failed to check admin status" });
+
+    if (error.name === "JsonWebTokenError") {
+      return res.status(401).json({ error: "Invalid token" });
+    }
+
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
