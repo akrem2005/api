@@ -9,7 +9,7 @@ exports.verifyToken = (req, res, next) => {
     return res.sendStatus(401);
   }
 
-  const result = verifyAccessToken(token, "aradx");
+  const result = verifyAccessToken(token, "ardax");
 
   if (!result.success) {
     return res.status(403).json({ error: result.error });
