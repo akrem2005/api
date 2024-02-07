@@ -2,8 +2,7 @@ const jwt = require("jsonwebtoken");
 
 // Middleware to check if a valid token is present
 exports.verifyToken = (req, res, next) => {
-  const authHeader = req.headers["Authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  const token = req.headers["authorization"];
 
   if (!token) {
     return res
