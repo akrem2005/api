@@ -15,6 +15,8 @@ exports.createNotification = async (req, res) => {
     const notification = new Notification({
       text: req.body.text,
       date: req.body.date,
+      image: req.body.image,
+      subtitle: req.body.subtitle,
     });
     await notification.save();
     res.json(notification);
