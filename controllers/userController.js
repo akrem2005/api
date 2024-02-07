@@ -31,9 +31,13 @@ exports.login = async (req, res) => {
     }
 
     // Generate a JWT token for authentication
-    const token = jwt.sign({ email: user.email, userId: user._id }, "ardax", {
-      expiresIn: "48h",
-    });
+    const token = jwt.sign(
+      { email: user.email, userId: user._id, isAdmin: user.isAdmin },
+      "ardax",
+      {
+        expiresIn: "48h",
+      }
+    );
     const activated = user.activated;
     const id = user._id;
 
