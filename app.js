@@ -8,6 +8,7 @@ const courseRoutes = require("./routes/courseRoutes");
 const userRoutes = require("./routes/userRoutes");
 const quizRoutes = require("./routes/quizRoutes");
 const paymentRoutes = require("./routes/paymentsRoutes");
+const fs = require("fs");
 
 mongoose
   .connect(
@@ -18,7 +19,28 @@ mongoose
 
 const app = express();
 app.use(express.json());
+app.get("/download", (req, res) => {
+  const filePath = path.join(
+    __dirname,
+    "apk",
+    "com.companyname.aradax-Signed.apk"
+  ); // Path to your local file
 
+  // Check if the file exists
+  if (fs.existsSync(filePath)) {
+    // Set the Content-Disposition header to trigger a download
+    res.setHeader(
+      "Content-Disposition",
+      "attachment; filename=com.companyname.aradax-Signed.apk"
+    );
+
+    // Stream the file as the response
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.pipe(res);
+  } else {
+    res.status(404).send("File not found");
+  }
+});
 app.use("/categories", categoryRoutes);
 app.use("/courses", courseRoutes);
 app.use("/users", userRoutes);
