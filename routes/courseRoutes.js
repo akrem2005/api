@@ -4,11 +4,22 @@ const courseController = require("../controllers/courseController");
 const authController = require("../controllers/authcontroller");
 //Use Router
 router.get("/", authController.verifyToken, courseController.getCourses);
-router.post("/new", authController.verifyToken, courseController.createCourse);
-router.put("/:id", authController.verifyToken, courseController.updateCourse);
+router.post(
+  "/new",
+  authController.verifyToken,
+  authController.verifyTokenAndAdmin,
+  courseController.createCourse
+);
+router.put(
+  "/:id",
+  authController.verifyToken,
+  authController.verifyTokenAndAdmin,
+  courseController.updateCourse
+);
 router.delete(
   "/:id",
   authController.verifyToken,
+  authController.verifyTokenAndAdmin,
   courseController.deleteCourse
 );
 router.get(
@@ -18,6 +29,7 @@ router.get(
 );
 router.post(
   "/uploadVideo",
+  authController.verifyTokenAndAdmin,
   authController.verifyToken,
   courseController.uploadVideo
 );

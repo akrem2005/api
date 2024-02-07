@@ -8,6 +8,7 @@ const courseRoutes = require("./routes/courseRoutes");
 const userRoutes = require("./routes/userRoutes");
 const quizRoutes = require("./routes/quizRoutes");
 const paymentRoutes = require("./routes/paymentsRoutes");
+const notificationsRoutes = require("./routes/notificationRoutes");
 const fs = require("fs");
 
 mongoose
@@ -46,6 +47,7 @@ app.use("/courses", courseRoutes);
 app.use("/users", userRoutes);
 app.use("/quiz", quizRoutes);
 app.use("/pay", paymentRoutes);
+app.use("/notifications", notificationsRoutes);
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });

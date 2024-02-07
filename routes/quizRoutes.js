@@ -7,6 +7,7 @@ const authController = require("../controllers/authcontroller");
 router.post(
   "/questions",
   authController.verifyToken,
+  authController.verifyTokenAndAdmin,
   questionController.createQuestion
 );
 
@@ -28,6 +29,7 @@ router.get(
 router.put(
   "/questions/:id",
   authController.verifyToken,
+  authController.verifyTokenAndAdmin,
   questionController.updateQuestion
 );
 
@@ -35,6 +37,7 @@ router.put(
 router.delete(
   "/questions/:id",
   authController.verifyToken,
+  authController.verifyTokenAndAdmin,
   questionController.deleteQuestion
 );
 
