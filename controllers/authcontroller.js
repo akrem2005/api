@@ -9,19 +9,5 @@ exports.verifyToken = (req, res, next) => {
       .status(401)
       .json({ message: "Unauthorized - No token provided" });
   }
-
-  try {
-    // Verify the token using the secret key used during signing
-    const decoded = jwt.verify(token, "ardax");
-
-    // Extract relevant information from the decoded token
-    const { email, userId } = decoded;
-
-    // You can perform additional logic here if needed
-
-    // Return the user information
-    res.json({ email, userId });
-  } catch (error) {
-    return res.status(401).json({ message: "Unauthorized - Invalid token" });
-  }
+  next();
 };
