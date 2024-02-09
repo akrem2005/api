@@ -1,5 +1,3 @@
-// File: app.js
-
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -20,6 +18,10 @@ mongoose
 
 const app = express();
 app.use(express.json());
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/download", (req, res) => {
   const filePath = path.join(
     __dirname,
@@ -42,24 +44,30 @@ app.get("/download", (req, res) => {
     res.status(404).send("File not found");
   }
 });
+
 app.use("/categories", categoryRoutes);
 app.use("/courses", courseRoutes);
 app.use("/users", userRoutes);
 app.use("/quiz", quizRoutes);
 app.use("/pay", paymentRoutes);
 app.use("/notifications", notificationsRoutes);
+
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "views", "index.html"));
 });
+
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, "404.html"));
+  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
+
 app.use((req, res, next) => {
-  res.status(500).sendFile(path.join(__dirname, "404.html"));
+  res.status(500).sendFile(path.join(__dirname, "views", "404.html"));
 });
+
 app.use((req, res, next) => {
-  res.status(403).sendFile(path.join(__dirname, "404.html"));
+  res.status(403).sendFile(path.join(__dirname, "views", "404.html"));
 });
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
