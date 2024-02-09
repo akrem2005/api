@@ -1,7 +1,7 @@
 {
-  "name": "aradaapi",
+  "name": "AradXapi",
   "version": "1.0.0",
-  "description": "api for an education platform arada",
+  "description": "api for an education platform AradaX",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
