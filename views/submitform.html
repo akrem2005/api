@@ -94,11 +94,17 @@
           .then((response) => response.json())
           .then((result) => {
             console.log(result);
-            // Handle the response as needed
+
+            // Check if the email was sent successfully
+            if (result.success) {
+              alert("Email sent successfully!");
+            } else {
+              alert("Failed to send email. Please try again later.");
+            }
           })
           .catch((error) => {
             console.error("Error:", error);
-            // Handle errors
+            alert("An error occurred. Please try again later.");
           });
       }
     </script>
