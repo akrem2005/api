@@ -30,6 +30,6 @@ router.post("/login", UserController.login);
 //Forget Email
 router.post("/reset", UserController.passwordReset);
 //Feedback
-router.post("/feedback", authController.verifyToken, UserController.feedBack);
+router.post("/feedback", UserController.feedBack);
 
 module.exports = router;

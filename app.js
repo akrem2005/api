@@ -32,6 +32,12 @@ app.use("/notifications", notificationsRoutes);
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
+app.get("/delete", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "submitform.html"));
+});
+app.get("/privacypolicy", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "privacypolicy.html"));
+});
 app.get("/overview", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "overview.html"));
 });

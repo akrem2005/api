@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Account</title>
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .delete-container {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      input[type="email"] {
+        padding: 10px;
+        font-size: 1em;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 1em;
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="delete-container">
+      <h1>Delete Account</h1>
+      <p>
+        Are you sure you want to delete your account? This action cannot be
+        undone.
+      </p>
+      <form
+        id="deleteForm"
+        action="/delete-account"
+        method="post"
+        onsubmit="submitForm(event)"
+      >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+        <button type="submit">Delete Account</button>
+      </form>
+    </div>
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+
+        var email = document.getElementById("email").value;
+
+        var data = JSON.stringify({
+          email: email,
+          message: "Account Delete Request",
+        });
+
+        fetch("https://aradax.com.et/users/feedback", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data,
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            // Handle the response as needed
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            // Handle errors
+          });
+      }
+    </script>
+  </body>
+</html>
