@@ -9,7 +9,10 @@ const userSchema = new mongoose.Schema({
   password: String,
   referal: String,
   referdby: String,
-  activated: Boolean,
+  activated: {
+    type: Boolean,
+    default: true,
+  },
   isAdmin: {
     type: Boolean,
     default: false,
