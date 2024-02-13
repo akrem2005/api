@@ -32,6 +32,6 @@ router.post("/reset", UserController.passwordReset);
 //Feedback
 router.post("/feedback", UserController.feedBack);
 //Request Newsletter
-router.post("/newsletter", UserController.feedBack);
+router.post("/newsletter", UserController.newsletter);
 
 module.exports = router;

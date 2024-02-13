@@ -494,10 +494,13 @@
       </h2>
       <input
         type="email"
+        name="email"
         class="newsletter-input"
         placeholder="Enter your email"
       />
-      <button class="newsletter-button">Subscribe</button>
+      <button class="newsletter-button" onclick="submitForm()">
+        Subscribe
+      </button>
     </div>
 
     <footer>
@@ -508,3 +511,37 @@
     </footer>
   </body>
 </html>
+<script>
+  function submitForm(event) {
+    event.preventDefault();
+
+    var email = document.getElementById("email").value;
+
+    var data = JSON.stringify({
+      email: email,
+    });
+
+    fetch("https://aradax.com.et/users/newsletter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+
+        // Check if the email was sent successfully
+        if (result.success) {
+          alert("Register to Newsletter");
+        } else {
+          alert("Failed to send email. Please try again later.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again later.");
+      });
+  }
+</script>
