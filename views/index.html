@@ -169,10 +169,19 @@
       }
 
       .testimonial-card {
-        background: #242527;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         color: #fb00ff;
         padding: 1.5em;
         border-radius: 10px;
+        margin: 10px;
         width: 300px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
