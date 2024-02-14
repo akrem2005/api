@@ -7,6 +7,8 @@ const userRoutes = require("./routes/userRoutes");
 const quizRoutes = require("./routes/quizRoutes");
 const paymentRoutes = require("./routes/paymentsRoutes");
 const notificationsRoutes = require("./routes/notificationRoutes");
+
+const cors = require("cors");
 const fs = require("fs");
 
 mongoose
@@ -54,6 +56,8 @@ app.use((req, res, next) => {
 });
 
 const port = 3000;
+app.use(cors());
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
