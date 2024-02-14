@@ -20,7 +20,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -56,7 +56,6 @@ app.use((req, res, next) => {
 });
 
 const port = 3000;
-app.use(cors());
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
