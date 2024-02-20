@@ -29,6 +29,7 @@ router.get(
 );
 router.post(
   "/upload",
+  upload.single("htmlFile"),
   authController.verifyTokenAndAdmin,
   authController.verifyToken,
   courseController.uploadFile
