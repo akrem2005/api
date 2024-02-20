@@ -2,6 +2,33 @@
 
 const Course = require("../models/Course");
 const path = require("path");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/"); // Save uploaded files to the 'uploads' directory
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(
+      null,
+      file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname)
+    );
+  },
+});
+const upload = multer({ storage: storage });
+
+// Handle HTML file upload
+exports.uploadFile = (req, res) => {
+  const file = req.file;
+  if (!file) {
+    return res.status(400).send("No file uploaded.");
+  }
+
+  // You can save the file details to the database or perform other operations here
+
+  res.send("File uploaded successfully!");
+};
 
 exports.getCourses = async (req, res) => {
   try {

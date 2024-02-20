@@ -28,9 +28,9 @@ router.get(
   courseController.getCourseByType
 );
 router.post(
-  "/uploadVideo",
+  "/upload",
   authController.verifyTokenAndAdmin,
   authController.verifyToken,
-  courseController.uploadVideo
+  courseController.uploadFile
 );
 module.exports = router;
