@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const courseController = require("../controllers/courseController");
-const authController = require("../controllers/authcontroller");
-const multer = require("multer"); // Import Multer
+const multer = require("multer");
+const path = require("path");
 
 // Multer configuration
 const storage = multer.diskStorage({
