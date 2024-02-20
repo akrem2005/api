@@ -22,6 +22,14 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }); // Initialize Multer
 
 //Use Router
+router.post(
+  "/upload",
+  upload.single("file"), // Update the field name to match the one used in the controller
+  authController.verifyTokenAndAdmin,
+  authController.verifyToken,
+  courseController.uploadFile
+);
+
 router.get("/", authController.verifyToken, courseController.getCourses);
 router.post(
   "/new",
@@ -46,11 +54,5 @@ router.get(
   authController.verifyToken,
   courseController.getCourseByType
 );
-router.post(
-  "/upload",
-  upload.single("htmlFile"),
-  authController.verifyTokenAndAdmin,
-  authController.verifyToken,
-  courseController.uploadFile
-);
+
 module.exports = router;
