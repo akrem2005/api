@@ -14,7 +14,7 @@ exports.uploadFile = (req, res) => {
 
   // You can save the file details to the database or perform other operations here
 
-  res.send(`File '${fileName}' uploaded successfully!`);
+  res.send(`${fileName}`);
 };
 
 exports.getCourses = async (req, res) => {
