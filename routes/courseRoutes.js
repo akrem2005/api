@@ -8,7 +8,7 @@ const path = require("path");
 // Multer configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Save uploaded files to the 'uploads' directory
+    cb(null, "public/uploads/"); // Save uploaded files to the 'uploads' directory
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
