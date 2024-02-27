@@ -297,6 +297,30 @@
       .apple {
         width: 164px;
       }
+      /* FAQ Section */
+      .faq-container {
+        margin-top: 40px;
+        padding: 20px;
+        margin: 20px;
+        background: #19191a;
+        border-radius: 10px;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      .faq-question {
+        font-size: 1.2em;
+        color: #fff;
+        margin-bottom: 0.5em;
+      }
+
+      .faq-answer {
+        color: #b3b3b3;
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -514,7 +538,78 @@
 
       <!-- Add more testimonials as needed -->
     </div>
+    <div class="faq-container">
+      <h2 class="text-2xl font-bold text-white mb-4">
+        Frequently Asked Questions
+      </h2>
 
+      <div class="faq-item" onclick="toggleAnswer('faq1')">
+        <div class="faq-question">
+          Q: How can I start learning Forex trading with AradaX?
+        </div>
+        <div class="faq-answer" id="faq1">
+          A: To begin your Forex trading journey with AradaX, you can sign up
+          for our courses and explore the comprehensive analysis and strategic
+          planning we offer for proficient execution in the forex market.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleAnswer('faq2')">
+        <div class="faq-question">
+          Q: What resources does AradaX provide for Crypto trading?
+        </div>
+        <div class="faq-answer" id="faq2">
+          A: AradaX provides efficient resources to navigate the cryptocurrency
+          world, helping you manage market fluctuations and make informed
+          investment decisions.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleAnswer('faq3')">
+        <div class="faq-question">
+          Q: Is there a trial period for AradaX courses?
+        </div>
+        <div class="faq-answer" id="faq3">
+          A: Yes, we offer a free trial period for our courses. You can explore
+          the content and decide if AradaX is the right fit for you before
+          committing.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleAnswer('faq4')">
+        <div class="faq-question">
+          Q: What payment methods are accepted for course enrollment?
+        </div>
+        <div class="faq-answer" id="faq4">
+          A: AradaX accepts payment via Telebirr during the enrollment process.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleAnswer('faq5')">
+        <div class="faq-question">
+          Q: How can I access the course materials after enrollment?
+        </div>
+        <div class="faq-answer" id="faq5">
+          A: Once you download the App, you will have access to the course
+          materials through your AradaX account. Simply log in to your account
+          to access the lessons, resources, and any additional materials
+          provided.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleAnswer('faq6')">
+        <div class="faq-question">
+          Q: Are there any prerequisites for the advanced courses?
+        </div>
+        <div class="faq-answer" id="faq6">
+          A: Some advanced courses may have prerequisites to ensure that
+          participants have the foundational knowledge needed for the content.
+          Check the course description for specific prerequisites before
+          enrolling.
+        </div>
+      </div>
+
+      <!-- Add more FAQ items as needed -->
+    </div>
     <div class="newsletter-container">
       <h2 class="newsletter-heading">
         Subscribe to Our Newsletter for Updates!
@@ -569,5 +664,16 @@
         console.error("Error:", error);
         alert("An error occurred. Please try again later.");
       });
+  }
+</script>
+<script>
+  function toggleAnswer(faqId) {
+    var answer = document.getElementById(faqId);
+
+    if (answer.style.display === "none" || answer.style.display === "") {
+      answer.style.display = "block";
+    } else {
+      answer.style.display = "none";
+    }
   }
 </script>
