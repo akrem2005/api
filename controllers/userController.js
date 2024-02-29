@@ -315,6 +315,7 @@ exports.incrementSharesForReferringUser = async (req, res) => {
     }
 
     const referringUser = await User.findOneAndUpdate({ code: code });
+    console.log(referringUser);
 
     if (!referringUser) {
       return res.status(404).json({ error: "Referring user not found" });
@@ -326,12 +327,10 @@ exports.incrementSharesForReferringUser = async (req, res) => {
       await referringUser.save();
       res.json({ message: "Shares incremented successfully" });
     } else {
-      return res
-        .status(500)
-        .json({
-          error: "Failed to increment shares",
-          details: "Invalid shares value",
-        });
+      return res.status(500).json({
+        error: "Failed to increment shares",
+        details: "Invalid shares value",
+      });
     }
   } catch (error) {
     console.error(error);
