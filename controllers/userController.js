@@ -304,6 +304,31 @@ exports.getById = async (req, res) => {
     res.status(500).json({ error: "Failed to retrieve user" });
   }
 };
+exports.incrementSharesForReferringUser = async (req, res) => {
+  try {
+    const { referal } = req.body;
+
+    if (!referal) {
+      return res.status(400).json({ error: "Referal code is required" });
+    }
+
+    const referringUser = await User.findOneAndUpdate({ referal: referal });
+
+    if (!referringUser) {
+      return res.status(404).json({ error: "Referring user not found" });
+    }
+
+    referringUser.shares += 1;
+    await referringUser.save();
+
+    res.json({ message: "Shares incremented successfully" });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Failed to increment shares", details: error.message });
+  }
+};
 
 function generateRandomPassword(length = 10) {
   const characters =

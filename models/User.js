@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   profile: String,
   password: String,
   referal: String,
+  shares: String,
   referdby: String,
   activated: {
     type: Boolean,
