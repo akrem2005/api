@@ -73,6 +73,7 @@ exports.createUser = async (req, res) => {
         email: req.body.email,
         password: hashedPassword,
         referal: "https://aradax.com.et/?referal=" + referal,
+        shares: "0",
       });
 
       try {
