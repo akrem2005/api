@@ -73,6 +73,7 @@ exports.createUser = async (req, res) => {
         email: req.body.email,
         password: hashedPassword,
         referal: "https://aradax.com.et/?referal=" + referal,
+        code: referal,
         shares: "0",
       });
 
@@ -313,7 +314,7 @@ exports.incrementSharesForReferringUser = async (req, res) => {
       return res.status(400).json({ error: "Referal code is required" });
     }
 
-    const referringUser = await User.findOneAndUpdate({ referal: referal });
+    const referringUser = await User.findOneAndUpdate({ code: referal });
 
     if (!referringUser) {
       return res.status(404).json({ error: "Referring user not found" });
