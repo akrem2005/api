@@ -308,7 +308,7 @@ exports.getById = async (req, res) => {
 };
 exports.incrementSharesForReferringUser = async (req, res) => {
   try {
-    const { code } = req.query;
+    const { code } = req.body;
 
     if (!code) {
       return res.status(400).json({ error: "Referal code is required" });
