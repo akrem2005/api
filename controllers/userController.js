@@ -311,7 +311,7 @@ exports.incrementSharesForReferringUser = async (req, res) => {
     const { code } = req.body;
 
     if (!code) {
-      return res.status(400).json({ error: "Referal code is required" });
+      return res.status(400).json({ error: "Referral code is required" });
     }
 
     const referringUser = await User.findOneAndUpdate({ code: code });
@@ -320,10 +320,19 @@ exports.incrementSharesForReferringUser = async (req, res) => {
       return res.status(404).json({ error: "Referring user not found" });
     }
 
-    referringUser.shares += 1;
-    await referringUser.save();
-
-    res.json({ message: "Shares incremented successfully" });
+    // Check if 'shares' is a valid number before incrementing
+    if (!isNaN(referringUser.shares)) {
+      referringUser.shares += 1;
+      await referringUser.save();
+      res.json({ message: "Shares incremented successfully" });
+    } else {
+      return res
+        .status(500)
+        .json({
+          error: "Failed to increment shares",
+          details: "Invalid shares value",
+        });
+    }
   } catch (error) {
     console.error(error);
     res
