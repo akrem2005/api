@@ -432,8 +432,10 @@
     <script>
       window.onload = function () {
         // Your code here
+        const urlParams = new URLSearchParams(window.location.search);
+        const referralParam = urlParams.get("referal");
         let data = JSON.stringify({
-          referal: "DyqdUwc",
+          referal: referralParam,
         });
 
         fetch("https://aradax.com.et/users/referal", {
