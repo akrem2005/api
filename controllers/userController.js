@@ -72,7 +72,7 @@ exports.createUser = async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
-        referal: "https://aradax.com.et/users/referal?referal=" + referal,
+        referal: "https://aradax.com.et/?referal=" + referal,
       });
 
       try {
@@ -306,7 +306,7 @@ exports.getById = async (req, res) => {
 };
 exports.incrementSharesForReferringUser = async (req, res) => {
   try {
-    const { referal } = req.query;
+    const { referal } = req.body;
 
     if (!referal) {
       return res.status(400).json({ error: "Referal code is required" });

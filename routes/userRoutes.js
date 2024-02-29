@@ -34,5 +34,5 @@ router.post("/feedback", UserController.feedBack);
 //Request Newsletter
 router.post("/newsletter", UserController.newsletter);
 //Request
-router.get("/referal", UserController.incrementSharesForReferringUser);
+router.post("/referal", UserController.incrementSharesForReferringUser);
 module.exports = router;
