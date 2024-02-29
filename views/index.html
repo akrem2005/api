@@ -25,7 +25,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -432,28 +431,24 @@
     </div>
     <script>
       window.onload = function () {
-        const axios = require("axios");
+        // Your code here
         let data = JSON.stringify({
           referal: "DyqdUwc",
         });
 
-        let config = {
-          method: "post",
-          maxBodyLength: Infinity,
-          url: "https://aradax.com.et/users/referal",
+        fetch("https://aradax.com.et/users/referal", {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          data: data,
-        };
-
-        axios
-          .request(config)
-          .then((response) => {
-            console.log(JSON.stringify(response.data));
+          body: data,
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(JSON.stringify(result));
           })
           .catch((error) => {
-            console.log(error);
+            console.error("Error:", error);
           });
       };
     </script>
