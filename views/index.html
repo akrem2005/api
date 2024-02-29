@@ -434,6 +434,7 @@
         // Your code here
         const urlParams = new URLSearchParams(window.location.search);
         const referralParam = urlParams.get("code");
+        console.log(referralParam);
         let data = JSON.stringify({
           code: referralParam,
         });
