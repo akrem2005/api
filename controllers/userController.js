@@ -68,17 +68,17 @@ exports.createUser = async (req, res) => {
         return res.status(500).json({ error: "Failed to save user" });
       }
 
-      const usersave = new User({
+      const newUser = new User({
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
-        referal: "https://aradax.com.et/?code=" + code,
-        code: code,
+        referal: `https://aradax.com.et/?code=${code}`,
+        code,
         shares: 0,
       });
 
       try {
-        const savedUser = await usersave.save();
+        const savedUser = await newUser.save();
         res.json(savedUser);
       } catch (error) {
         console.error("Error saving user:", error);
