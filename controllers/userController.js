@@ -43,7 +43,6 @@ exports.login = async (req, res) => {
 
     res.json({ token, activated, id });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Failed to login" });
   }
 };
@@ -319,8 +318,6 @@ exports.incrementSharesForReferringUser = async (req, res) => {
       { $inc: { shares: 1 } },
       { new: true } // This option returns the updated document
     );
-
-    console.log(referringUser);
 
     if (!referringUser) {
       return res.status(404).json({ error: "Referring user not found" });
