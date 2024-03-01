@@ -326,9 +326,10 @@ exports.incrementSharesForReferringUser = async (req, res) => {
       return res.status(404).json({ error: "Referring user not found" });
     }
 
-    // Check if 'shares' is a valid number before incrementing
+    // No need to save again, as the document is already updated by findOneAndUpdate
+
+    // Check if 'shares' is a valid number after incrementing
     if (!isNaN(referringUser.shares)) {
-      await referringUser.save();
       res.json({ message: "Shares incremented successfully" });
     } else {
       return res.status(500).json({
