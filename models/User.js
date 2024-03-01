@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   referal: String,
   shares: Number,
-  code: String,
+  code: { type: String, unique: true },
   activated: {
     type: Boolean,
     default: true,
