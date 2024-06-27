@@ -1,386 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AradaX - Learn Forex, Crypto, Ecommerce, and Content Creation</title>
+    <!-- Add a meta tag for the status bar color -->
+    <meta name="theme-color" content="#111" />
+    <!-- Set your desired color -->
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Add a favicon for the website -->
+    <link rel="icon" type="image/png" href="icon.png" />
+    <!-- Replace "your-favicon.png" with your actual favicon image -->
 
-  <title>AradaX | Home</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <meta
+      name="description"
+      content="Learn Forex, Crypto, Ecommerce, and Content Creation to start making money fast with AradaX."
+    />
+    <meta
+      name="keywords"
+      content="Forex, Crypto, Ecommerce, Content Creation, AradaX, Money Making, Ethiopia"
+    />
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+      /* Resetting some styles */
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      body {
+        background-color: #000;
+        color: #fb00ff; /* Neon Green */
+        font-family: "Roboto", sans-serif;
+      }
 
-  <!-- Variables CSS Files. Uncomment your preferred color scheme -->
-  <link href="assets/css/variables.css" rel="stylesheet">
-  <!-- <link href="assets/css/variables-blue.css" rel="stylesheet"> -->
-  <!-- <link href="assets/css/variables-green.css" rel="stylesheet"> -->
-  <!-- <link href="assets/css/variables-orange.css" rel="stylesheet"> -->
-  <!-- <link href="assets/css/variables-purple.css" rel="stylesheet"> -->
-  <!-- <link href="assets/css/variables-red.css" rel="stylesheet"> -->
-  <!-- <link href="assets/css/variables-pink.css" rel="stylesheet"> -->
+      header {
+        background: linear-gradient(to right, #111, #000);
+        padding: 2em;
+        text-align: left;
+      }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+      header img {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #fb00ff; /* Neon Green */
+        border-radius: 10px;
+        box-shadow: 0 0 10px #fb00ff; /* Neon Green */
+      }
 
-  <!-- =======================================================
-  * Template Name: HeroBiz
-  * Template URL: https://bootstrapmade.com/herobiz-bootstrap-business-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+        color: #fb00ff; /* Neon Green */
+        margin-bottom: 0.5em;
+      }
 
-<body>
+      h2 {
+        text-align: center;
+        font-size: 1.5em;
+        color: #b3b3b3; /* Light Gray */
+        margin-bottom: 1em;
+      }
+      .content-container {
+        margin-top: 40px;
+      }
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top" data-scrollto-offset="0">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
+      .cta-container {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
 
-      <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>AradaX<span>.</span></h1>
-      </a>
+      .cta-button {
+        background: #fff;
+        color: #000;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 2px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
 
-      <nav id="navbar" class="navbar">
-        <ul>
+      .cta-button:hover {
+        @apply bg-gradient-to-r from-indigo-500 to-pink-500;
+      }
 
-          <li class="dropdown"><a href="#"><span>Home</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-          
+      .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 2em;
+      }
 
-          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-          
-       
-     
-          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle d-none"></i>
-      </nav><!-- .navbar -->
+      .feature-card {
+        @apply bg-gradient-to-r from-purple-900 to-black;
+        color: #b88aff; /* Purple */
+        border: 2px solid #b88aff; /* Purple */
+        border-radius: 10px;
+        padding: 1.5em;
+        margin: 1em;
+        text-align: center;
+        max-width: 300px;
+      }
 
-      <a class="btn-getstarted scrollto" href="index.html#about">Get Started</a>
+      .feature-card h3 {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+      }
 
+      .feature-card p {
+        color: #b3b3b3;
+      }
+
+      .screenshot-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent line breaks */
+        padding: 1em;
+        margin-top: 2em;
+      }
+
+      .screenshot {
+        max-width: 100%;
+        height: auto;
+        margin: 1em;
+        border: 2px solid #fb00ff; /* Neon Green */
+        border-radius: 10px;
+        max-height: 400px;
+        box-shadow: 0 0 10px #fb00ff; /* Neon Green */
+        display: inline-block;
+      }
+
+      .video-container {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+        margin-top: 2em;
+      }
+
+      .video-container iframe {
+        width: 550px;
+        height: 300px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      /* Your existing styles */
+      .testimonial-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 2em;
+        text-align: center;
+      }
+
+      .testimonial-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        color: #fb00ff;
+        padding: 1.5em;
+        border-radius: 10px;
+        margin: 10px;
+        width: 300px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: scale(1.05);
+      }
+
+      .testimonial {
+        margin-bottom: 1em;
+        color: #eee;
+      }
+
+      .newsletter-container {
+        background: linear-gradient(to right, #111, #000);
+        color: #fb00ff;
+        padding: 2em;
+        border-radius: 10px;
+        margin-top: 2em;
+        text-align: center;
+      }
+
+      .newsletter-heading {
+        font-size: 1.8em;
+        margin-bottom: 1em;
+      }
+
+      .newsletter-input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        outline: none;
+        margin: 10px;
+        width: 80%;
+      }
+
+      .newsletter-button {
+        background: #b88aff;
+        color: #000;
+        font-size: 1.2em;
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-button:hover {
+        @apply bg-gradient-to-r from-blue-500 to-pink-500;
+      }
+
+      footer {
+        background: linear-gradient(to right, #111, #000);
+        color: rgba(191, 185, 195, 0.933); /* Neon Green */
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* Additional styles for Forex and Crypto Learning App */
+      .forex-crypto-container {
+        @apply bg-black text-gray-700;
+        padding: 2em;
+        border-radius: 10px;
+        margin-top: 2em;
+      }
+
+      .forex-crypto-heading {
+        font-size: 1.8em;
+        margin-bottom: 1em;
+      }
+
+      .forex-crypto-content {
+        color: #aaa2a2;
+      }
+      .imgscr {
+        width: 100%;
+      }
+
+      .screenshot-main {
+        max-width: 100%;
+        height: auto;
+        margin-top: -150px;
+        height: 400px;
+        right: 200px;
+      }
+      i {
+        color: #0000;
+      }
+
+      /* Add cool hover effect to screenshot */
+      .screenshot-main:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
+      .app-icons {
+        display: flex;
+        max-width: 400px;
+        align-items: center;
+        margin-right: -50px;
+      }
+      .vertical {
+        width: 300px;
+
+        flex-direction: column;
+      }
+      .testimonial-card img {
+        width: 150px;
+        height: 150px;
+        margin: 20px;
+        border-radius: 50%;
+      }
+
+      .android {
+        width: 200px;
+        margin: 2px;
+      }
+      .apple {
+        width: 164px;
+      }
+      /* FAQ Section */
+      .faq-container {
+        margin-top: 40px;
+        padding: 20px;
+        margin: 20px;
+        background: #19191a;
+        border-radius: 10px;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      .faq-question {
+        font-size: 1.2em;
+        color: #fff;
+        margin-bottom: 0.5em;
+      }
+
+      .faq-answer {
+        color: #b3b3b3;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="content-container text-center">
+        <h1
+          class="text-5xl font-bold text-white mb-2 animate__animated animate__fadeIn animate__delay-1s"
+        >
+          AradaX - Your Gateway to Financial Success!
+        </h1>
+        <h2
+          class="text-lg text-center text-gray-400 mb-4 animate__animated animate__fadeIn animate__delay-2s"
+        >
+          Master Forex, Crypto, Ecommerce, and Content Creation
+        </h2>
+
+        <!-- <div class="video-container">
+          <iframe
+            id="videoPlayer"
+            src="https://media.istockphoto.com/id/962464638/video/binary-code-black-and-green-background-with-digits-moving-on-screen-concept-of-digital-age.mp4?s=mp4-640x640-is&k=20&c=fMcH9yaJHdyjj0d_2EXEumDWEkeyajeHjDe8gRP6ynY="
+            allowfullscreen
+            class="w-full max-w-screen-lg mx-auto"
+            style="height: 400px"
+          ></iframe>
+        </div> -->
+        <center>
+          <div class="app-icons">
+            <a href="#">
+              <img
+                class="android"
+                style="
+                  background: none;
+
+                  border: 1px solid #fff;
+                  box-shadow: none;
+                  padding: 1px;
+                "
+                alt="Get it on IOS"
+                src="/images/ic/app.png"
+              />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.aradax.aradax&pcampaignid=web_share"
+            >
+              <img
+                class="android"
+                style="
+                  background: none;
+                  width: 280px;
+                  border: none;
+                  box-shadow: none;
+                "
+                alt="Get it on Google Play"
+                src="/images/ic/google.png"
+              />
+            </a>
+          </div>
+        </center>
+
+        <!-- Rest of your content -->
+        <!-- ... -->
+      </div>
+    </header>
+
+    <div class="flex justify-center flex-wrap mt-8">
+      <div class="feature-card">
+        <h3>Forex Trading</h3>
+        <p>
+          Comprehensive analysis and strategic planning for proficient and
+          meticulous execution in the forex market.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Crypto Trading</h3>
+        <p>
+          Efficiently navigate the cryptocurrency world, managing market
+          fluctuations and making informed investment decisions.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Dropshipping</h3>
+        <p>
+          Optimize your business model with Aradax's course, streamlining
+          product sourcing and delivery for maximum efficiency.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Content Creation</h3>
+        <p>
+          Enhance your digital media skills and refine creative strategies for
+          impactful content creation.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Graphics Design</h3>
+        <p>
+          Explore graphic design trends with Aradax's course, delivering
+          visually compelling materials with the latest techniques.
+        </p>
+      </div>
     </div>
-  </header><!-- End Header -->
+    <script>
+      window.onload = function () {
+        // Your code here
+        const urlParams = new URLSearchParams(window.location.search);
+        const referralParam = urlParams.get("code");
+        console.log(referralParam);
+        let data = JSON.stringify({
+          code: referralParam,
+        });
 
-  <section id="hero-animated" class="hero-animated d-flex align-items-center">
-    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-      <img src="assets/img/hero-carousel/hero-carousel-3.svg" class="img-fluid animated">
-      <h2>Welcome to <span>AradaX</span></h2>
-      <p>THE ULTIMATE SOFTWARE DEVELOPMENT SOLUTIONS IN ETHIOPIA</p>
-      <div class="d-flex">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-       </div>
+        fetch("https://aradax.com.et/users/referal", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data,
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(JSON.stringify(result));
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      };
+    </script>
+    <center>
+      <div class="screenshot-container">
+        <!-- Add relevant screenshots for the Forex and Crypto Learning App -->
+        <img
+          src="/images/IconWeb/image1.jpeg"
+          alt="App Screenshot 1"
+          class="screenshot"
+        />
+        <img
+          src="/images/IconWeb/image2.jpeg"
+          alt="App Screenshot 2"
+          class="screenshot"
+        />
+        <img
+          src="/images/IconWeb/image3.jpeg"
+          alt="App Screenshot 1"
+          class="screenshot"
+        />
+        <img
+          src="/images/IconWeb/image4.jpeg"
+          alt="App Screenshot 1"
+          class="screenshot"
+        />
+        <img
+          src="/images/IconWeb/image5.jpeg"
+          alt="App Screenshot 2"
+          class="screenshot"
+        />
+      </div>
+    </center>
+    <h1 style="color: #fff; margin-top: 20px">ምስክርነቶች</h1>
+
+    <div style="margin: 20px">
+      <div class="testimonial-container">
+        <div class="testimonial-card">
+          <p class="testimonial" style="font-weight: 100">
+            " Crypto Trading የት እንደምጀምር አላወቀም ነበር። በ AradaX እርዳታ አሁን ከ 50,000
+            ብር+ እየሰራሁ ነው። "
+          </p>
+          <h6
+            style="
+              color: #fff;
+              font-weight: bold;
+              float: right;
+              margin-right: 20px;
+            "
+          >
+            Abel Tesfaye
+          </h6>
+          <!-- Add more testimonials as needed -->
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial" style="font-weight: 100">
+            " አስደናቂ Mentors እና አስደናቂ የመማር መድረክ። ሌላ ምንም ማለት አይቻልም !"
+          </p>
+          <h6
+            style="
+              color: #fff;
+              font-weight: bold;
+              float: right;
+              margin-right: 20px;
+            "
+          >
+            Nina Ahmed
+          </h6>
+          <!-- Add more testimonials as needed -->
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial" style="font-weight: 100">
+            " AradaX ዘመናዊ የገንዘብ ማግኛ ዘዴዎችን ለመማር አስደናቂ መድረክ ነው። በፍጥነት ይቀላቀሉ እና
+            ገንዘብ ያግኙ። "
+          </p>
+          <h6
+            style="
+              color: #fff;
+              font-weight: bold;
+              float: right;
+              margin-right: 20px;
+            "
+          >
+            Teshome Mamo
+          </h6>
+          <!-- Add more testimonials as needed -->
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial" style="font-weight: 100">
+            " AradaX helped me build a foundation for a sucessfull Dropshipping
+            Business in My Country. Register And Get the same Benefits I Get. "
+          </p>
+          <h6
+            style="
+              color: #fff;
+              font-weight: bold;
+              float: right;
+              margin-right: 20px;
+            "
+          >
+            Chukwu Adeoye
+          </h6>
+          <!-- Add more testimonials as needed -->
+        </div>
+      </div>
+
+      <!-- Add more testimonials as needed -->
+      <br />
+      <h2 class="text-2xl font-bold text-white mb-4">
+        Frequently Asked Questions
+      </h2>
+      <br />
+      <br />
+      <br />
     </div>
-  </section>
+    <div class="faq-container">
+      <div class="faq-item" onclick="toggleAnswer('faq1')">
+        <div class="faq-question">
+          Q: How can I start learning Forex trading with AradaX?
+        </div>
+        <div class="faq-answer" id="faq1">
+          A: To begin your Forex trading journey with AradaX, you can sign up
+          for our courses and explore the comprehensive analysis and strategic
+          planning we offer for proficient execution in the forex market.
+        </div>
+      </div>
 
-  <main id="main">
-<!-- ======= Featured Services Section ======= -->
-<section id="featured-services" class="featured-services">
-  <div class="container">
-    <div class="section-header">
-      <h2>Featured Services</h2>
-      <p>Explore our specialized software solutions</p>
+      <div class="faq-item" onclick="toggleAnswer('faq2')">
+        <div class="faq-question">
+          Q: What resources does AradaX provide for Crypto trading?
+        </div>
+        <div class="faq-answer" id="faq2">
+          A: AradaX provides efficient resources to navigate the cryptocurrency
+          world, helping you manage market fluctuations and make informed
+          investment decisions.
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleAnswer('faq3')">
+        <div class="faq-question">
+          Q: Is there a trial period for AradaX courses?
+        </div>
+        <div class="faq-answer" id="faq3">
+          A: Yes, we offer a free trial period for our courses. You can explore
+          the content and decide if AradaX is the right fit for you before
+          committing.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleAnswer('faq4')">
+        <div class="faq-question">
+          Q: What payment methods are accepted for course enrollment?
+        </div>
+        <div class="faq-answer" id="faq4">
+          A: AradaX accepts payment via Telebirr during the enrollment process.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleAnswer('faq5')">
+        <div class="faq-question">
+          Q: How can I access the course materials after enrollment?
+        </div>
+        <div class="faq-answer" id="faq5">
+          A: Once you download the App, you will have access to the course
+          materials through your AradaX account. Simply log in to your account
+          to access the lessons, resources, and any additional materials
+          provided.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleAnswer('faq6')">
+        <div class="faq-question">
+          Q: Are there any prerequisites for the advanced courses?
+        </div>
+        <div class="faq-answer" id="faq6">
+          A: Some advanced courses may have prerequisites to ensure that
+          participants have the foundational knowledge needed for the content.
+          Check the course description for specific prerequisites before
+          enrolling.
+        </div>
+      </div>
+
+      <!-- Add more FAQ items as needed -->
     </div>
-    <div class="row gy-4">
-      <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-out">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-laptop icon"></i></div>
-          <h4><a href="">Inventory Management System</a></h4>
-          <p>Track inventory levels in real-time, automate reordering process, manage suppliers and purchase orders, generate comprehensive inventory reports.</p>
-        </div>
-      </div><!-- End Service Item -->
-      <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-pencil-square icon"></i></div>
-          <h4><a href="">School Management System</a></h4>
-          <p>Manage student admissions and enrollment, automate attendance tracking, streamline grading and assessment, communicate with parents and guardians.</p>
-        </div>
-      </div><!-- End Service Item -->
-      <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
-        <div class="service-item position-relative">
-          <div class="icon"><i class="bi bi-hospital icon"></i></div>
-          <h4><a href="">Hospital Management System</a></h4>
-          <p>Manage patient records securely, track medical supplies and equipment, schedule appointments and surgeries, integrate with diagnostic systems.</p>
-        </div>
-      </div><!-- End Service Item -->
-    </div>
-  </div>
-</section><!-- End Featured Services Section -->
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Clients Section ======= -->
-
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
-    <section id="pricing" class="pricing">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Our Pricing</h2>
-          <p>Choose the best plan for your needs.</p>
-        </div>
-        <div class="row gy-4">
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item">
-              <div class="pricing-header">
-                <h3>Inventory Management System</h3>
-                <h4><sup>$</sup>150,000 birr<span></span></h4>
-              </div>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Track inventory levels in real-time</span></li>
-                <li><i class="bi bi-check"></i> <span>Automate reordering process</span></li>
-                <li><i class="bi bi-check"></i> <span>Manage suppliers and purchase orders</span></li>
-                <li><i class="bi bi-check"></i> <span>Generate comprehensive inventory reports</span></li>
-              </ul>
-              <div class="text-center mt-auto">
-                <a href="#" class="buy-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="400">
-            <div class="pricing-item featured">
-              <div class="pricing-header">
-                <h3>School Management System</h3>
-                <h4><sup>$</sup>250,000 birr<span></span></h4>
-              </div>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Manage student admissions and enrollment</span></li>
-                <li><i class="bi bi-check"></i> <span>Automate attendance tracking</span></li>
-                <li><i class="bi bi-check"></i> <span>Streamline grading and assessment</span></li>
-                <li><i class="bi bi-check"></i> <span>Communicate with parents and guardians</span></li>
-              </ul>
-              <div class="text-center mt-auto">
-                <a href="#" class="buy-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="600">
-            <div class="pricing-item">
-              <div class="pricing-header">
-                <h3>Hospital Management System</h3>
-                <h4><sup>$</sup>500,000 birr<span></span></h4>
-              </div>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Manage patient records securely</span></li>
-                <li><i class="bi bi-check"></i> <span>Track medical supplies and equipment</span></li>
-                <li><i class="bi bi-check"></i> <span>Schedule appointments and surgeries</span></li>
-                <li><i class="bi bi-check"></i> <span>Integrate with diagnostic systems</span></li>
-              </ul>
-              <div class="text-center mt-auto">
-                <a href="#" class="buy-btn">Buy Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-            </div>
-
-          </div>
-
-         
-        </div>
-
-      </div>
-    </section><!-- End F.A.Q Section -->
-
-
-    
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-header">
-          <h2>Contact Us</h2>
-          <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad dolores adipisci aliquam.</p>
-        </div>
-
-      </div>
-
-      <div class="container">
-
-        <div class="row gy-5 gx-lg-5">
-
-          <div class="col-lg-4">
-
-            <div class="info">
-              <h3>Get in touch</h3>
-
-              <div class="info-item d-flex">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h4>Location:</h4>
-                  <p>Addis Ababa, Ethiopia</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h4>Email:</h4>
-                  <p>lighttech96@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-phone flex-shrink-0"></i>
-                <div>
-                  <h4>Call:</h4>
-                  <p>+251 929175653</p>
-                </div>
-              </div><!-- End Info Item -->
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="footer-content">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>AradaX</h3>
-              <p>
-                Addis Ababa <br>
-                Ethiopia<br><br>
-                <strong>Phone:</strong> +251 929175653<br>
-                <strong>Email:</strong> lighttech96@gmail.com<br>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-          
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Get Updates on our new products</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-
-        </div>
-      </div>
+    <div class="newsletter-container">
+      <h2 class="newsletter-heading">
+        Subscribe to Our Newsletter for Updates!
+      </h2>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="newsletter-input"
+        placeholder="Enter your email"
+      />
+      <button class="newsletter-button" onclick="submitForm()">
+        Subscribe
+      </button>
     </div>
 
-    <div class="footer-legal text-center">
-      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
-
-        <div class="d-flex flex-column align-items-center align-items-lg-start">
-          <div class="copyright">
-            &copy; Copyright <strong><span>AradaX</span></strong>. All Rights Reserved
-          </div>
-          <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-            Designed by <a href="">Akrem Abdulkadir</a>
-          </div>
-        </div>
-
-        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-
-      </div>
-    </div>
-
-  </footer><!-- End Footer -->
-
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+    <footer>
+      <p>&copy; 2024 AradaX. All rights reserved.</p>
+      <br />
+      <br />
+      <br />
+    </footer>
+  </body>
 </html>
+<script>
+  function submitForm() {
+    var email = document.getElementById("email").value;
+
+    var data = JSON.stringify({
+      email: email,
+    });
+
+    fetch("https://aradax.com.et/users/newsletter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: data,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+
+        // Check if the email was sent successfully
+        if (result.success) {
+          alert("Register to Newsletter");
+        } else {
+          alert("Failed to send email. Please try again later.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again later.");
+      });
+  }
+</script>
+<script>
+  function toggleAnswer(faqId) {
+    var answer = document.getElementById(faqId);
+
+    if (answer.style.display === "none" || answer.style.display === "") {
+      answer.style.display = "block";
+    } else {
+      answer.style.display = "none";
+    }
+  }
+</script>
